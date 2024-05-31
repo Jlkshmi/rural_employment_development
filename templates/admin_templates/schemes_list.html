@@ -1,0 +1,42 @@
+{% extends 'admin_templates/admin.html' %}
+{% block content %}
+<h1>EMPLOYMENT SCHEMES</h1>
+ <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Name Of The Schemes/Programs</th>
+      <th scope="col">Ministry</th>
+      <th scope="col">Remarks</th>
+        <th scope="col">Fund</th>
+
+    </tr>
+  </thead>
+     <tbody style="width:100px; gap:20px; padding-top:20px">
+
+     {% for i in scheme %}
+
+     <tr>
+
+         <td>{{i.name}}</td>
+         <td>{{i.ministry}}</td>
+         <td style="width 50px">{{i.remarks}}</td>
+         <td>{{i.distribution}}</td>
+
+
+
+         <td>
+          <form action= "{% url 'scheme_dlt' i.id %}" method="post">
+              {% csrf_token %}
+          <button type="submit" class="btn">Delete</button>
+          </form>
+
+      </td>
+
+     </tr>
+
+        {% endfor %}
+
+     </tbody>
+ </table>
+{% endblock %}

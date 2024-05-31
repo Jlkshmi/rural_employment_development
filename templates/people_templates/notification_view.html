@@ -1,0 +1,21 @@
+{% extends 'people_templates/people.html' %}
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Notification</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for i in  data %}
+  <tr>
+  <td>{{i.notification}}</td>
+  </tr>
+{% endfor %}
+  </tbody>
+  </table>
+{% endblock %}

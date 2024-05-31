@@ -1,0 +1,36 @@
+{% extends 'admin_templates/admin.html' %}
+{% block content %}
+<h1>PANCHAYAT DETAILS</h1>
+ <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">User</th>
+      <th scope="col">Feedback</th>
+
+    </tr>
+  </thead>
+     <tbody>
+     {% for i in data %}
+     <tr>
+
+         <td>{{i.user}}</td>
+         <td>{{i.feedback}}</td>
+        <td>
+            {% if i.reply == None %}
+             <a href="{% url 'feedback_reply' i.id %}">
+            <button type="submit" class="btn">Reply</button>
+                {% else %}
+                    {{i.reply}}
+             {% endif %}
+        </td>
+
+
+
+
+     </tr>
+        {% endfor %}
+
+     </tbody>
+ </table>
+{% endblock %}

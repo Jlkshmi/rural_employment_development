@@ -1,0 +1,39 @@
+{% extends 'panchayath_templates/panchayat.html' %}
+{% block content %}
+<h1>Job Lists</h1>
+ <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Job Title</th>
+      <th scope="col">Requirements</th>
+      <th scope="col">Experience</th>
+    </tr>
+  </thead>
+     <tbody >
+
+     {% for i in data %}
+
+     <tr>
+
+         <td>{{i.job_title}}</td>
+         <td>{{i.requirements}}</td>
+         <td>{{i.experience}}</td>
+
+
+
+         <td>
+<!--          <form action= "{% url '' i.id %}" method="post">-->
+<!--              {% csrf_token %}-->
+<!--          <button type="submit" class="btn">Delete</button>-->
+<!--          </form>-->
+
+      </td>
+
+     </tr>
+
+        {% endfor %}
+
+     </tbody>
+ </table>
+{% endblock %}

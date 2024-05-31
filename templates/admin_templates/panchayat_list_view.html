@@ -1,0 +1,35 @@
+{% extends 'admin_templates/admin.html' %}
+{% block content %}
+<h1>PANCHAYAT DETAILS</h1>
+ <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Panchayat</th>
+      <th scope="col">Location</th>
+      <th scope="col">District</th>
+    </tr>
+  </thead>
+     <tbody>
+     {% for i in data1 %}
+     <tr>
+
+         <td>{{i.panchayath_name}}</td>
+         <td>{{i.location}}</td>
+         <td>{{i.district}}</td>
+
+
+
+<!--         <td>-->
+<!--          <form action= "{#}" method="post">-->
+<!--              {% csrf_token %}-->
+<!--          <button type="submit" class="btn">Delete</button>-->
+<!--          </form>-->
+
+<!--      </td>-->
+     </tr>
+        {% endfor %}
+
+     </tbody>
+ </table>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'people_templates/people.html' %}
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Feedback</th>
+    </tr>
+  </thead>
+<tbody>
+{% for i in data %}
+     <tr>
+         <td>{{i.user}}</td>
+         <td>{{i.feedback}}</td>
+
+        <td> {% if i.reply == None %}
+            Not replied yet!!!
+                {% else %}
+                    {{i.reply}}
+             {% endif %}
+         </td>
+     </tr>
+{% endfor %}
+</tbody>
+    </table>
+{% endblock %}

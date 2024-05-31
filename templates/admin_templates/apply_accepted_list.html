@@ -1,0 +1,22 @@
+{% extends 'admin_templates/admin.html' %}
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for i in  status %}
+  <tr>
+  <td>{{i.user.name}}</td>
+
+  </tr>
+
+{% endfor %}
+  </tbody>
+  </table>
+{% endblock %}

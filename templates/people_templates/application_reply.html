@@ -1,0 +1,36 @@
+{% extends 'people_templates/people.html' %}
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Scheme</th>
+      <th scope="col">Job Title</th>
+      <th scope="col">Requirements</th>
+      <th scope="col">Experience</th>
+      <th scope="col">Status</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in  data %}
+  <tr>
+      <td>{{i.job.scheme}}</td>
+  <td>{{i.job.job_title}}</td>
+    <td>{{i.job.requirements}}</td>
+    <td>{{i.job.experience}}</td>
+    <td>
+      {% if i.status == 0 %}
+      <h3>pending...</h3>
+      {% elif i.status == 1 %}
+      <h3>Accepted</h3>
+      {% else %}
+      <h3>Rejected</h3>
+    </td>
+  </tr>
+    {% endif %}
+{% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

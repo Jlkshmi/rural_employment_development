@@ -1,0 +1,25 @@
+{% extends 'panchayath_templates/panchayath.html' %}
+{% block content %}
+  <h1>
+            PROFILE
+        </h1>
+    {% for i in data %}
+        <div>
+
+        <h4>NAME :{{i.panchayath_name}}</h4>
+        <h4>LOCATION :{{i.location}}</h4>
+        <h4>DISTRICT :{{i.district}}</h4>
+
+
+    </div>
+
+
+      <div>
+
+         <a href="{% url 'panchayat_update' i.id %}">
+             <button  type="submit">Update</button>
+         </a>
+
+      </div>
+{% endfor %}
+{% endblock %}

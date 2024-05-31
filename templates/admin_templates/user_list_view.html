@@ -1,0 +1,38 @@
+{% extends 'admin_templates/admin.html' %}
+{% block content %}
+<h1>USER DETAILS</h1>
+ <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">Name</th>
+      <th scope="col">Contact_no</th>
+        <th scope="col">Email</th>
+      <th scope="col">Address</th>
+        <th scope="col">Delete</th>
+    </tr>
+  </thead>
+     <tbody>
+     {% for i in data %}
+     <tr>
+
+         <td>{{i.name}}</td>
+         <td>{{i.contact_no}}</td>
+         <td>{{i.email}}</td>
+         <td>{{i.address}}</td>
+
+
+
+         <td>
+          <form action= "{% url 'user_delete' i.id %}" method="post">
+              {% csrf_token %}
+          <button type="submit" class="btn">Delete</button>
+          </form>
+
+      </td>
+     </tr>
+        {% endfor %}
+
+     </tbody>
+ </table>
+{% endblock %}

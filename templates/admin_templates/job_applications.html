@@ -1,0 +1,46 @@
+{% extends 'admin_templates/admin.html' %}
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Scheme</th>
+      <th scope="col">Job Title</th>
+      <th scope="col">Requirements</th>
+      <th scope="col">Experience</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for i in  data %}
+  <tr>
+    <td>{{i.user }}
+    </td>
+  <td>{{i.job.scheme}}</td>
+    <td>{{i.job.job_title}}</td>
+    <td>{{i.job.requirements}}</td>
+      <td>{{i.job.experience}}</td>
+    <td>
+      {% if i.status == 0 %}
+      <a href="{% url 'status_change_1' i.id %}" type="submit" class="btn-btn">Approve</a>
+      <a href="{% url 'status_change_2' i.id %}" type="submit" class="btn-btn">Reject</a>
+      {% elif i.status == 1 %}
+      <a href="{% url 'status_change_1' i.id %}" type="submit" class="btn-btn">Approved</a>
+      {% else %}
+      <a href="{% url 'status_change_2' i.id %}" type="submit" class="btn-btn">Rejected</a>
+    </td>
+
+
+
+    <td>
+
+
+     </td>
+  </tr>
+  {% endif %}
+{% endfor %}
+  </tbody>
+  </table>
+{% endblock %}
