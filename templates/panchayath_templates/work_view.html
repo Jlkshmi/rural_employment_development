@@ -40,7 +40,15 @@
                  Payment
                  </button>
              </a>
+             {% elif i.status == 1 %}
+             <a href="{% url 'work_view' %}">
+                 <button  class="btn">
+                 Paid
+                 </button>
+             </a>
+
              {% else %}
+
 
              {% endif %}
 

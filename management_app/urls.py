@@ -6,7 +6,6 @@ urlpatterns = [
     # path('',views.intro,name='intro'),
     path('',views.landing_page,name='landing_page'),
     path('dash',views.dash,name='dash'),
-
     path('people_reg_page',views.people_reg_page,name='people_reg_page'),
     path('panchayat_reg_page',views.panchayat_reg_page,name='panchayat_reg_page'),
     path('login',views.login_view,name='login'),
@@ -58,6 +57,7 @@ urlpatterns = [
     path('work_view',panchayathviews.work_view,name='work_view'),
     path('work_update/<int:id>/',panchayathviews.work_update,name='work_update'),
     path('payment/<int:id>/',panchayathviews.payment,name='payment'),
-    path('work_dlt/<int:id>/',panchayathviews.work_dlt,name='work_dlt')
+    path('work_dlt/<int:id>/',panchayathviews.work_dlt,name='work_dlt'),
+    path('status_1/<int:id>/',panchayathviews.status_1,name='status_1'),
 
 ]

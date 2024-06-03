@@ -1,3 +1,4 @@
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -82,6 +83,9 @@ def payment(request,id):
             form_2.work_id=data
             form_2.user=asd
             form_2.save()
+            # status = work.objects.get(id=id)
+            data.status = 1
+            data.save()
         return redirect('work_view')
     messages.info(request, 'Payment Successfully')
     return render(request, 'panchayath_templates/payment_form.html', {'payment': payment})
@@ -92,3 +96,9 @@ def work_dlt(request,id):
     return redirect('work_view')
 
 
+def status_1(request,id):
+    status= work.objects.get(id=id)
+    status.status=1
+    status.save()
+    return redirect('work_view')
+    return render(request,'panchayath_templates/work_view.html')

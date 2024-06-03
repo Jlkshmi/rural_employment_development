@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from management_app.form import Schemes_Form, Noti_Form
-from management_app.models import Panchayat, People, Schemes, Feedback, apply_for_job, Notification, work
+from management_app.models import Panchayat, People, Schemes, Feedback, apply_for_job, Notification
 
 @login_required(login_url='login')
 def admin(request):
