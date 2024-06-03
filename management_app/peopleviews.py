@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from management_app.form import User_Form, Feedback_Form
-from management_app.models import People, Job_allotment, apply_for_job, Feedback, Notification
+from management_app.models import People, Job_allotment, apply_for_job, Feedback, Notification, Payment, work
+
 
 @login_required(login_url='login')
 def people(request):
@@ -13,7 +14,6 @@ def people(request):
 def user_profile(request):
     user_1 = request.user
     data = People.objects.filter(user=user_1)
-
     return render(request,'people_templates/user_profile.html',{'data':data})
 
 @login_required(login_url='login')
@@ -87,3 +87,14 @@ def application_reply(request):
 def noti_view(request):
     data=Notification.objects.all()
     return render(request,'people_templates/notification_view.html',{'data':data})
+
+def receive_payment(request):
+    user_1=request.user
+    people= People.objects.get(user=user_1)
+    data= Payment.objects.filter(user=people)
+    return render(request,'people_templates/user_payment.html',{'data':data})
+
+def payment_dlt(request,id):
+    data=Payment.objects.get(id=id)
+    data.delete()
+    return redirect('payment_received')

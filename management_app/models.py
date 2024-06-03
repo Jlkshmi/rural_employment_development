@@ -85,7 +85,8 @@ class work(models.Model):
 
 
 class Payment(models.Model):
-    user=models.ForeignKey(work,on_delete=models.CASCADE,null=True,blank=True)
+    work_id=models.ForeignKey(work,on_delete=models.CASCADE,null=True,blank=True)
+    user=models.ForeignKey(People,on_delete=models.CASCADE)
     account_number=models.IntegerField()
     IFSC_code=models.CharField()
     amount=models.IntegerField()

@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'rural_employment_management.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
-        'NAME': 'rural_employment_development',
+        'NAME': 'rural_development_employment',
         'USER': 'postgres',
         'PASSWORD':'1234',
         'HOST':'LOCALHOST',

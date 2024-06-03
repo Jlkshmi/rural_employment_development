@@ -40,7 +40,6 @@ def job_allotment_list(request):
 @login_required(login_url='login')
 def application_accept_view(request):
     status= apply_for_job.objects.filter(status=1)
-
     return render(request,'panchayath_templates/application_accepted_list.html',{'status':status})
 @login_required(login_url='login')
 def work_asign(request,id):
@@ -73,17 +72,23 @@ def work_update(request,id):
 @login_required(login_url='login')
 def payment(request,id):
     payment = Payment_Form()
+    # to get that user
     data=work.objects.get(id=id)
     asd=data.user
     if request.method == 'POST':
         form_1 = Payment_Form(request.POST)
         if form_1.is_valid():
             form_2=form_1.save(commit=False)
+            form_2.work_id=data
             form_2.user=asd
             form_2.save()
         return redirect('work_view')
     messages.info(request, 'Payment Successfully')
     return render(request, 'panchayath_templates/payment_form.html', {'payment': payment})
 
+def work_dlt(request,id):
+    data=work.objects.get(id=id)
+    data.delete()
+    return redirect('work_view')
 
 

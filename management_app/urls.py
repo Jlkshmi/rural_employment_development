@@ -44,6 +44,8 @@ urlpatterns = [
     path('reply_view',peopleviews.reply_view,name='reply_view'),
     path('application_reply',peopleviews.application_reply,name='application_reply'),
     path('noti_view',peopleviews.noti_view,name='noti_view'),
+    path('payment_received',peopleviews.receive_payment,name='payment_received'),
+    path('payment_dlt/<int:id>/',peopleviews.payment_dlt,name='payment_dlt'),
 
 # panchayat
     path('panchayat',panchayathviews.panchayath,name='panchayat'),
@@ -55,6 +57,7 @@ urlpatterns = [
     path('work/<int:id>/',panchayathviews.work_asign,name='work'),
     path('work_view',panchayathviews.work_view,name='work_view'),
     path('work_update/<int:id>/',panchayathviews.work_update,name='work_update'),
-    path('payment/<int:id>/',panchayathviews.payment,name='payment')
+    path('payment/<int:id>/',panchayathviews.payment,name='payment'),
+    path('work_dlt/<int:id>/',panchayathviews.work_dlt,name='work_dlt')
 
 ]

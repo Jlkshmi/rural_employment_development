@@ -1,0 +1,33 @@
+{% extends 'people_templates/people.html' %}
+{% block content %}
+<table class="table">
+    <thead>
+<tr>
+    <th scope="col">User</th>
+    <th scope="col">Account Number</th>
+     <th scope="col">IFSC Code</th>
+     <th scope="col">Amount</th>
+
+</tr>
+<tbody >
+    {% for i in data %}
+<tr>
+    <td>{{i.user}}</td>
+    <td>{{i.account_number}}</td>
+    <td>{{i.IFSC_code}}</td>
+    <td>{{i.amount}} Credited On Your Bank Account</td>
+
+    <td>
+         <form action= "{% url 'payment_dlt' i.id %}" method="post">
+              {% csrf_token %}
+          <button type="submit" class="btn">Delete</button>
+          </form>
+    </td>
+</tr>
+
+    {% endfor %}
+</tbody>
+</thead>
+</table>
+
+{% endblock %}
