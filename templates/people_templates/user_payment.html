@@ -17,12 +17,7 @@
     <td>{{i.IFSC_code}}</td>
     <td>{{i.amount}} Credited On Your Bank Account</td>
 
-    <td>
-         <form action= "{% url 'payment_dlt' i.id %}" method="post">
-              {% csrf_token %}
-          <button type="submit" class="btn">Delete</button>
-          </form>
-    </td>
+
 </tr>
 
     {% endfor %}

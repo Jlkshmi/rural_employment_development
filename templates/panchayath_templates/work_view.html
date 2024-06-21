@@ -33,6 +33,8 @@
          <td>{{i.end_date}}</td>
          <td>{{i.complete}}</td>
          <td>
+
+
              {% if i.complete == "100% finished" and i.status == 0 %}
 
              <a href="{% url 'payment' i.id %}">
@@ -48,19 +50,17 @@
              </a>
 
              {% else %}
-
-
              {% endif %}
 
 
          <td>
-             <a href="{% url 'work_update' i.id %}">
-             <button  type="submit">Update</button>
-         </a>
+            <a href="{% url 'work_update' i.id %}">
+             <button  type="submit" class="btn btn-dark">Update</button>
+            </a>
 
          <form action= "{% url 'work_dlt' i.id %}" method="post">
               {% csrf_token %}
-          <button type="submit">Delete</button>
+          <button type="submit" class="btn btn-dark">Delete</button>
           </form>
          </td>
 

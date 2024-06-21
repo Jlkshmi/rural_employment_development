@@ -5,7 +5,7 @@
 
 <html lang="en">
 <head>
-	<title>Job Allotment</title>
+	<title></title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -32,35 +32,21 @@
 <!--===============================================================================================-->
 </head>
 <body>
-
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url( {% static 'images/bg-01.jpg' %} );">
-						<form method="POST">
-							{% csrf_token %}
-							{{payment|crispy}}
-
-
-
-					<div>
-
-                  <input type="submit" class="btn btn-dark btn-block" value="submit"/>
-
-                    </div>
-
-						</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-<!--===============================================================================================-->
-	<script src=" {% static 'static2/vendor/jquery/jquery-3.2.1.min.js' %} "></script>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+             <h1 class="text-center display-4"></h1>
+        </div>
+        <div class="col-md-12">
+            <form method="POST">
+                {% csrf_token %}
+                {{form|crispy}}
+                <input type="submit" class="btn btn-dark btn-block" value="Update"/>
+            </form>
+        </div>
+    </div>
+</div>
+<script src=" {% static 'static2/vendor/jquery/jquery-3.2.1.min.js' %} "></script>
 <!--===============================================================================================-->
 	<script src=" {% static 'static2/vendor/animsition/js/animsition.min.js' %} "></script>
 <!--===============================================================================================-->

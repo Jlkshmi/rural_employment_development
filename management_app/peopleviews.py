@@ -95,8 +95,3 @@ def receive_payment(request):
     data= Payment.objects.filter(user=people)
     return render(request,'people_templates/user_payment.html',{'data':data})
 
-@login_required(login_url='login')
-def payment_dlt(request,id):
-    data=Payment.objects.get(id=id)
-    data.delete()
-    return redirect('payment_received')

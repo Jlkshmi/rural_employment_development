@@ -27,9 +27,9 @@
       <a href="{% url 'status_change_1' i.id %}" type="submit" class="btn-btn">Approve</a>
       <a href="{% url 'status_change_2' i.id %}" type="submit" class="btn-btn">Reject</a>
       {% elif i.status == 1 %}
-      <a href="{% url 'status_change_1' i.id %}" type="submit" class="btn-btn">Approved</a>
+      <a href="{% url 'status_change_1' i.id %}" type="submit" class="btn btn-outline-success">Approved</a>
       {% else %}
-      <a href="{% url 'status_change_2' i.id %}" type="submit" class="btn-btn">Rejected</a>
+      <a href="{% url 'status_change_2' i.id %}" type="submit" class="btn btn-outline-success">Rejected</a>
     </td>
 
 

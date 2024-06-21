@@ -19,9 +19,13 @@
     <td>
           <form action= "{% url 'noti_dlt' i.id %}" method="post">
               {% csrf_token %}
-          <button type="submit" class="btn">Delete</button>
-          </form>    </td>
+          <button type="submit" class="btn btn-secondary">Delete</button>
+          </form>
+
+      <a href="{% url 'noti_update' i.id %} "><button class="btn btn-secondary">Update</button></a>
+</td>
   </tr>
+
 {% endfor %}
   </tbody>
   </table>

@@ -83,11 +83,10 @@ def payment(request,id):
             form_2.work_id=data
             form_2.user=asd
             form_2.save()
-            # status = work.objects.get(id=id)
             data.status = 1
             data.save()
         return redirect('work_view')
-    messages.info(request, 'Payment Successfully')
+        messages.info(request, 'Payment Successfully')
     return render(request, 'panchayath_templates/payment_form.html', {'payment': payment})
 
 def work_dlt(request,id):
@@ -100,5 +99,6 @@ def status_1(request,id):
     status= work.objects.get(id=id)
     status.status=1
     status.save()
+    messages.info(request, 'Payment Successfully')
     return redirect('work_view')
     return render(request,'panchayath_templates/work_view.html')

@@ -80,15 +80,20 @@ def notification(request):
 def notification_view(request):
     data = Notification.objects.all()
     return render(request,'admin_templates/notification_view.html',{'data':data})
-@login_required(login_url='login')
-def apply_accept_view(request):
-    status= apply_for_job.objects.filter(status=1)
-    return render(request,'admin_templates/apply_accepted_list.html',{'status':status})
+
 @login_required(login_url='login')
 def noti_dlt(request,id):
     data= Notification.objects.get(id=id)
     data.delete()
     return redirect('notification_view')
 
-
+def noti_update(request,id):
+    noti = Notification.objects.get(id=id)
+    form = Noti_Form(instance=noti)
+    if request.method == 'POST':
+        form = Noti_Form(request.POST, instance=noti)
+        if form.is_valid():
+            form.save()
+            return redirect('notification_view')
+    return render(request, 'admin_templates/notification_update.html', {'form': form})
 
